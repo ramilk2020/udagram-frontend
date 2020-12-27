@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: udagram-user
+  name: udagram-frontend
   labels:
-    app: udagram-user
+    app: udagram-frontend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: udagram-user
+      app: udagram-frontend
   template:
     metadata:
       labels:
-        app: udagram-user
+        app: udagram-frontend
     spec:
       containers:
-      - name: ramilk2021-udagram-user
-        image: ramilk2021/ramilk2021-udagram-user:latest
+      - name: ramilk2021-udagram-frontend
+        image: ramilk2021/ramilk2021-udagram-frontend:latest
         env:
         - name: POSTGRES_USERNAME
           value: postgres
@@ -37,4 +37,4 @@ spec:
         - name: URL
           value: http://localhost:8100
         ports:
-        - containerPort: 8080
+        - containerPort: 80
