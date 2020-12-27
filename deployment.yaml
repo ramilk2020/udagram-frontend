@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: udagram-user
+  labels:
+    app: udagram-user
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: udagram-user
+  template:
+    metadata:
+      labels:
+        app: udagram-user
+    spec:
+      containers:
+      - name: ramilk2021-udagram-user
+        image: ramilk2021/ramilk2021-udagram-user:latest
+        env:
+        - name: POSTGRES_USERNAME
+          value: postgres
+        - name: POSTGRES_PASSWORD
+          value: Gigolo10011987!
+        - name: POSTGRES_HOST
+          value: udagram.ceuguyulwgfm.us-east-1.rds.amazonaws.com
+        - name: POSTGRES_DB
+          value: udagramdb
+        - name: AWS_BUCKET
+          value: udagram-mrp-dev
+        - name: AWS_REGION
+          value: us-west-2
+        - name: AWS_PROFILE
+          value: default
+        - name: JWT_SECRET
+          value: hello
+        - name: URL
+          value: http://localhost:8100
+        ports:
+        - containerPort: 8080
