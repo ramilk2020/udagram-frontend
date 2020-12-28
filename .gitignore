@@ -35,4 +35,6 @@ UserInterfaceState.xcuserstate
 node_modules
 deployment.yaml
 frontend-service.yaml
+deployment.yaml
+env_file
 
